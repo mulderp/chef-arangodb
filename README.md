@@ -6,6 +6,21 @@ http://www.arangodb.org/
 A universal open-source database with a flexible data model for documents, graphs, and key-values. Build high performance applications
 using a convenient sql-like query language or JavaScript/Ruby extensions
 
+Sample Vagrantfile
+===================
+
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = "cookbooks"
+  
+    chef.add_recipe "chef_handler"
+    chef.add_recipe "minitest-handler"
+    chef.add_recipe "apt"
+    chef.add_recipe "arangodb::install_deb"
+  
+    # You may also specify custom JSON attributes:
+    # chef.json = { :mysql_password => "foo" }
+  end
 
 What offers ArangoDB
 ===================
